@@ -3,11 +3,11 @@ USE c_cs108_
 DROP TABLE IF EXISTS inbox_db;
 
 CREATE TABLE inbox_db {
-	sender CHAR(128)
-	receiver CHAR(128)
-	creation_date TIMESTAMP
-	message CHAR(255) 
-	message_type CHAR(32) /*note, challenege, friend request*/
+	sender CHAR(128) references user_db(username), 
+	receiver CHAR(128) references user_db(username),
+	creation_date TIMESTAMP,
+	message CHAR(255) ,
+	message_type CHAR(32), /*note, challenege, friend request*/
 	is_done CHAR(32)
 };
 

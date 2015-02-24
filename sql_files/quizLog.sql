@@ -3,10 +3,10 @@ USE c_cs108_
 DROP TABLE IF EXISTS quiz_log_db;
 
 CREATE TABLE quiz_log_db {
-	start_time TIMESTAMP
-	username CHAR(128)
-	quizid CHAR(128)
-	score DECIMAL(5, 2)
+	start_time TIMESTAMP,
+	username CHAR(128) references user_db(username),
+	quizid CHAR(128) references quiz_db(quizid),
+	score DECIMAL(5, 2),
 	total_time TIME /*hours, minutes, seconds*/
 };
 
