@@ -1,12 +1,12 @@
-USE c_cs108_
+USE c_cs108_stsai612
 
 DROP TABLE IF EXISTS question_response_db;
 
 CREATE TABLE question_response_db {
-	quizid CHAR(128)
-	question VARCHAR(255)
-	answer VARCHAR(255)
-	max_score INTEGER
+	quizid CHAR(128) references quiz_db(quizid), 
+	question VARCHAR(255),
+	answer VARCHAR(255),
+	max_score INTEGER,
 };
 
 INSERT INTO question_response_db VALUES

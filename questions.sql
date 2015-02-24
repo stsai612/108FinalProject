@@ -1,4 +1,4 @@
-USE c_cs108_
+USE c_cs108_stsai612
 
 DROP TABLE IF EXISTS question_response_db;
 

@@ -1,26 +1,14 @@
-USE c_cs108_
+USE c_cs108_stsai612
 
 DROP TABLE IF EXISTS friends_db;
 
 CREATE TABLE friends_db {
-	quizid CHAR(128)
-	creation_date TIMESTAMP
-	username CHAR(128)
-	num_questions INTEGER
-	category CHAR(128)
-	tags VARCHAR(255) /*this is something we parse*/
-	highest_score DECIMAL(5, 2) /*initialized to 0*/
-	times_taken INTEGER
-	is_practice CHAR(32) /*store true or false*/
-	is_random CHAR(32)
-	is_multi_page CHAR(32)
-	is_immediate_scoring CHAR(32) /*only relevant for multiple page quizzes*/
+	username_one CHAR(128) references user_db(username), 
+	username_two CHAR(128) references user_db(username),
+	friend_date TIMESTAMP,
+	num_interactions INTEGER /*could be cool to have some "top friends" feature or something*/
 };
 
-INSERT INTO quiz_db VALUES
-	("Fun Response Quiz", '2008-01-01 00:00:01', "stsai", 1, "", "", 0, 0, "true", "false", "false", "false"),
-	("Multi-question quiz", '2012-01-01 00:00:01', "stsai", 4, "", "", 0, 0, "true", "true", "false", "false"),
-	("Blank quiz", '2014-01-01 00:00:01', "stsai", 1, "", "", 0, 0, "true", "false", "false", "false"),
-	("Multiple choice quiz", '2015-01-01 00:00:01', 1, "", "", 0, 0, "true", "false", "false", "false"),
-	("Picture quiz", '2015-09-01 00:06:01', 1, "", "", 0, 0, "false", "false", "false", "false")
+INSERT INTO friends_db VALUES
+	("stsai", "kjohnson", '2015-02-01 00:00:01', 0)
 	
